@@ -8,31 +8,31 @@ Personal Code Summary for the second team live project I was a part of at Prospe
 
 During my time at The Tech Academy, I was assigned to 2 two-week sprints working on software to be used as a way to "manage a collection of construction jobs. Admins will be able to create and distribute a weekly schedule assigning users to certain jobs. Users will be able to keep track of which job they are assigned to for the week. There will also be the ability for admins to post company news and announcements, and chat functionality for the users to socialize."
 
-My contributions to this project included adding back-end search functionality to the database within different pages of the app. This involved displaying ActionResults to Views, and using Partial Views that shared information within different parts of the app.  I also worked extensively with user roles and authentication as well as error handling, UI/UX navbar improvements, and adding and deleting objects to and from multiple tables with the database.
+My contributions to this second sprint of the project included adding back-end functionality.  I fixed a bug that allowed the admin to delete them selves, I enabled the app to capture from the database which users were suspended, I created a partial view that allows users to be separated by "active" or "suspended", I enabled a Job object to be deleted along with all of it's attached objects from different tables of the database, and I added a list of all users to the admin Dashboard view.
 
 Listed below are the stories I worked on, a brief description of their expectations, and the code I created to complete them.
 
 ## User Stories
 
-- [Front End Stories](#front-end-stories)
-  - [Scheduling Page](#scheduling-page)
-- [Full Stack Stories](#full-stack-stories)
-  - [States Dropdown](#states-dropdown)
-  - [Sorting Paging And Seaching](#sorting-paging-and-seaching)
-  - [Admin Header Nav Bar](
+- [Remove Ability To Suspend and Change Role for Self](#remove-ability-to-suspend-and-change-role-for-self)
+- [Capture Suspended](#capture-suspended)
+- [Separate Users by Type](#separate-users-by-type)
+- [Deleting a Job with attached objects](#deleting-a-job-with-attached-objects)
+- [User List in Dashboard Admin View](#user-list-in-dashboard-admin-view)
 
 
 
 
 
-Story 5104:  Remove ability suspend/change role for self
+## Remove Ability To Suspend and Change Role for Self
+
 When the user is logged in as an admin, they have the ability to suspend or change the role for any user. We don't want the admin to accidentally change their own role. Add in a check in, with an error alert, to make sure the user isn't changing their own status. Test that this works (Create a dummy admin account so you don't accidentally log yourself out of admin abilities!). Once it works, make sure the drop down for user role doesn't display for the logged in user.
+
+
 
 Here is the original page:
 
 ![img](images/AMwEvrHh0gQGCD0MxDs-JgnNLBASdE6uiTXcZYbZ-QIhADUskK7b46HUDhkJRq9_IQVh3oCl3_yvSSLWh6NumnLWj9jHMIhBl55tvsed2JBg_24cGGjk08paf2Pklr164xHbAepM-20191009125326624.png)
-
-
 
 
 
@@ -68,7 +68,7 @@ Here is the finished page (I am logged in as NewAdmin):
 
 
 
-Story 5015: Capture Suspended
+### Capture Suspended
 There is a checkbox for the suspended bool attribute in the user class, which doesn't actually bind to the property and change the user's status. Have the checkbox actually change the property value, and also have it display properly for the existing value.
 
 
@@ -77,8 +77,6 @@ In the UserController, I added this bit of code for updating the database to mar
 
 
 ![img](images/9OXjvl-oCCj7y-ndlJX6mQRPDTh8jkzDJW4QdVd0gIIGB1bRJ0uWX4sNklAAGbjZv16o2WyvPCpabZOxxLBVHyCqdHG6Y6Ah3i356JE6YF5sqKzgIXbMiQ9AQJM7g_u7XvKYUzTE.png)
-
-
 
 
 
@@ -96,9 +94,8 @@ Finally, I added an Ajax submit form in the Site.js to display warnings, confirm
 
 
 
+### Separate Users by Type
 
-
-Story 5016:
  Now that we have added the ability to suspend a user, we want to separate them into a different list for the admin. Create a new shared partial view that lists only Suspended users. Filter the old Master User List Partial to not show Suspended Users. Render the partial view in the All Users list.Then add a Link to the Dashboard Users section "View All Users" that will have the Suspended Partial View Display below the Active Users List.    
 
 
@@ -185,7 +182,7 @@ The "All Users" link in the nav bar then displays the Users "Index" view:
 
 
 
-Story 5125:  Deleting a Job with attached objects
+### Deleting a Job with attached objects
 When trying to delete a Job item which is associated with a Schedule item or other items, the application crashes due to database related error.  We need to prevent this crash by creating a "User-Friendly Error Message" and error-handling in the back end. This handling will need to separate out items that may mean the user doesn't want to delete the job, and also make the necessary changes in order to be able to delete both the Job and its associated items successively. 
 1) Using dummy jobs, implement the ability to delete a job with all fields filled out or attached (Shift Time, JobSite, JobOther, Manager, etc) - note that JobSite and Manager should not be deleted from the database, but ensure you can delete a job if those are included.
 2) Create a pop-up message that tells the user there are still future schedules associated with the job if this is the case, and ask if they want to continue-- include the ability to cancel the request, and this may require sending a bool for future schedules into the ViewBag for client side verification.
@@ -268,17 +265,7 @@ Here is the Job list with the two Dummy Jobs deleted:
 
 
 
-
-
-
-
-
-
-
-
-
-
-Story 5168:  User List in Dashboard Admin view
+### User List in Dashboard Admin View
 
 The admin is able to see all User (Active, suspended, and unregistered) by just clicking the " All Users"  navigation item which takes him (Users/Index view page). The Admin is also able to see this list from the Admin Dashboard (Home/Dashboard view page) under User List.  But the "Unregistered Users" are not displayed here. Your job is to fix this bug. 
 
