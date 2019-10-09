@@ -17,7 +17,7 @@ Listed below are the stories I worked on, a brief description of their expectati
 - [Remove Ability To Suspend and Change Role for Self](#remove-ability-to-suspend-and-change-role-for-self)
 - [Capture Suspended](#capture-suspended)
 - [Separate Users by Type](#separate-users-by-type)
-- [Deleting a Job with attached objects](#deleting-a-job-with-attached-objects)
+- [Deleting a Job with Attached Objects](#deleting-a-job-with-attached-objects)
 - [User List in Dashboard Admin View](#user-list-in-dashboard-admin-view)
 
 
@@ -182,7 +182,8 @@ The "All Users" link in the nav bar then displays the Users "Index" view:
 
 
 
-### Deleting a Job with attached objects
+### Deleting a Job with Attached Objects
+
 When trying to delete a Job item which is associated with a Schedule item or other items, the application crashes due to database related error.  We need to prevent this crash by creating a "User-Friendly Error Message" and error-handling in the back end. This handling will need to separate out items that may mean the user doesn't want to delete the job, and also make the necessary changes in order to be able to delete both the Job and its associated items successively. 
 1) Using dummy jobs, implement the ability to delete a job with all fields filled out or attached (Shift Time, JobSite, JobOther, Manager, etc) - note that JobSite and Manager should not be deleted from the database, but ensure you can delete a job if those are included.
 2) Create a pop-up message that tells the user there are still future schedules associated with the job if this is the case, and ask if they want to continue-- include the ability to cancel the request, and this may require sending a bool for future schedules into the ViewBag for client side verification.
