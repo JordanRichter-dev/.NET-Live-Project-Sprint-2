@@ -20,11 +20,11 @@ Listed below are the stories I worked on, a brief description of their expectati
 - [Deleting a Job with Attached Objects](#deleting-a-job-with-attached-objects)
 - [User List in Dashboard Admin View](#user-list-in-dashboard-admin-view)
 
+## 
 
 
 
-
-## Remove Ability To Suspend and Change Role for Self
+### Remove Ability To Suspend and Change Role for Self
 
 When the user is logged in as an admin, they have the ability to suspend or change the role for any user. We don't want the admin to accidentally change their own role. Add in a check in, with an error alert, to make sure the user isn't changing their own status. Test that this works (Create a dummy admin account so you don't accidentally log yourself out of admin abilities!). Once it works, make sure the drop down for user role doesn't display for the logged in user.
 
@@ -66,6 +66,8 @@ Here is the finished page (I am logged in as NewAdmin):
 
 
 
+## 
+
 
 
 ### Capture Suspended
@@ -91,6 +93,10 @@ Finally, I added an Ajax submit form in the Site.js to display warnings, confirm
 
 
 ![img](images/4Ap5CNizoypOmH02iWvJfPEzNpakdFosF_1aan1YPc0QuH63uddmeSE8DwDOhQjQn8FlsRdxfVkSWewMuI127Sxnk4XRP6ZYcXzzjR_9RnstsNhMQa8IX2j_0QFpRDb4bmzjRJCX.png)
+
+
+
+## 
 
 
 
@@ -180,6 +186,8 @@ The "All Users" link in the nav bar then displays the Users "Index" view:
 
 
 
+## 
+
 
 
 ### Deleting a Job with Attached Objects
@@ -263,6 +271,8 @@ Here is the Job list with the two Dummy Jobs deleted:
 ![img](images/LFrwEDyk3kD41IOAvAJErMNj8jHSPRr80lOg-tDC02Wp_kKaspdK1CStLG_UZ1bcHY-1q2yRKPdurTucR46UXnJnJ8waEir4VN-8jCt4YpfeDc2zHsr9zaW7B5zG2T9u1WNEkdaY.png)
 
 
+
+## 
 
 
 
